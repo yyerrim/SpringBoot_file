@@ -1,0 +1,15 @@
+<form method="post" enctype="multipart/form-data">
+  <div id="input-files">
+    <input type="file" name="file" multiple><br>
+  </div>
+  <button type="button">추가</button>
+  <input type="submit" value="업로드">
+</form>
+<script>
+  document.querySelector('button').addEventListener('click', () => {
+    const div = document.querySelector('#input-files');
+    const inputs = document.querySelectorAll('#input-files > input');
+    const input = `<input type="file" name="file${inputs.length}" multiple>`;
+    div.innerHTML += input + "<br>";
+  });
+</script>
