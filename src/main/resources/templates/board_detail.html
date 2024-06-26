@@ -1,0 +1,6 @@
+<body>
+    <h3 th:text="${board.id}"></h3>
+    <h3 th:text="${board.title}"></h3>
+    <!-- <img th:src="${board.files[0].fileName}"> -->
+    <img th:src="@{|/download?id=${board.id}|}" width="300px">
+</body>

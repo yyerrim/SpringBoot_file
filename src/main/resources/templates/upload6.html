@@ -1,10 +1,12 @@
 <form method="post" enctype="multipart/form-data">
   <div id="input-files">
-    <input type="file" name="file" multiple><br>
+    <input type="file" name="file" multiple>
+    <br>
   </div>
   <button type="button">추가</button>
   <input type="submit" value="업로드">
 </form>
+
 <script>
   document.querySelector('button').addEventListener('click', () => {
     const div = document.querySelector('#input-files');

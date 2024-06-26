@@ -1,0 +1,34 @@
+<body>
+    <table>
+        <!-- tr>td*2 : Emmet -->
+        <tr>
+            <td>번호</td>
+            <td>제목</td>
+        </tr>
+        <!-- 가장 간단한 방법 : <tr th:each="b : ${list}" onclick=""> -->
+        <tr th:each="b : ${list}" th:data-id="${b.id}">
+            <td th:text="${b.id}" th:data-id="${b.id}"></td>
+            <td th:text="${b.title}" th:data-id="${b.id}"></td>
+        </tr>
+    </table>
+</body>
+
+<script>
+    const trs = document.querySelectorAll('tr:not(tr:first-child)');
+    // 브라우저에서 자동으로 <tbody> 태그가 생성되기 때문에 table>tr:not(tr:first-child)는 실행안됨
+    // trs.forEach((v) => { // v : 각 tr
+    //     v.addEventListener('click', (e) => {
+    //         const tr = e.target;
+    //         const id = tr.getAttribute('data-id');
+    //         location = `/board/${id}`;
+    //     });
+    // });
+    for (let i = 0; i < trs.length; i++) {
+        const v = trs[i];
+        v.addEventListener('click', (e) => {
+            const tr = e.target;
+            const id = tr.getAttribute('data-id');
+            location = `/board/${id}`;
+        });
+    }
+</script>
